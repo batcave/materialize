@@ -43,6 +43,8 @@
     "phantomjs-prebuilt": "^2.1.14"
   },
   "scripts": {
-    "test": "grunt travis --verbose"
+    "test": "grunt travis --verbose",
+    "build-css": "node-sass --include-path scss sass/materialize.scss _compiled/materialize.css",
+    "watch-css": "nodemon -e scss -x 'npm run build-css'"
   }
 }

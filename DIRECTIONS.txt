@@ -1,0 +1,22 @@
+How to compile Materialize
+
+Basically, we just want to compile the SASS in Materialize.
+
+This article explains how:
+https://medium.com/@brianhan/watch-compile-your-sass-with-npm-9ba2b878415b
+
+In your virtual machine, install node-sass and nodemon:
+$ npm install -D node-sass nodemon
+
+Then, add the build and watch scripts to package.json, if there are already scripts there don’t forget to check your commas per json:
+"scripts": {
+ "build-css": "node-sass --include-path scss sass/materialize.scss _compiled/materialize.css",
+ "watch-css": "nodemon -e scss -x 'npm run build-css'"
+},
+
+Ssh into your VM and navigate to the materialize directory. If you need to create the output directory, do so:
+$ mkdir _compiled
+
+Now, start the watch:
+$ npm run watch-css
+
